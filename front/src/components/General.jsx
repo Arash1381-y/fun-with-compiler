@@ -42,12 +42,12 @@ export const ProjectContainer = ({projectName, projectDescription, projectImage,
         <Grid item xs={12} md={7}>
             <Grid container spacing={5} sx={{padding: '2rem'}}>
                 <Grid item xs={12} md={12}>
-                    <ProjectTypography color={theme.palette.text.secondary} variant='h3' fontWeight='bold' component='h4' gutterBottom>
+                    <ProjectTypography color={'secondary'} variant='h3' fontWeight='bold' component='h4' gutterBottom>
                         {projectName}
                     </ProjectTypography>
                 </Grid>
                 <Grid item xs={12} md={12}>
-                    <ProjectTypography variant='h6' sx={infoStyle} gutterBottom>
+                    <ProjectTypography variant='h6' component='p' sx={infoStyle} gutterBottom>
                         {projectDescription}
                     </ProjectTypography>
                 </Grid>
