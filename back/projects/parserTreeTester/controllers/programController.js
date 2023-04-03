@@ -1,12 +1,10 @@
-const jwt = require('jsonwebtoken');
 async function unzip(srcPath, resultPath) {
-    srcPath = path.join(process.env.filesPath, srcPath);
-    resultPath = path.join(process.env.filesPath, resultPath);
     return await decompress(srcPath, resultPath);
-}
-var id = 0;
+};
+
+
 const programSaver = (req, res) => {
-    unzip(req.resPath, 'temp').then(result => {
+    unzip(req.filePath, req.filePath).then(result => {
         res.status(200).json({ token: req.token });
     }).catch(err => {
         res.status(500).json({ message: "Internal Server Error" });
