@@ -3,7 +3,6 @@ import Box from '@mui/material/Box';
 import SpeedDial from '@mui/material/SpeedDial';
 import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
-import EditIcon from '@mui/icons-material/Edit';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import MenuIcon from '@mui/icons-material/Menu';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -15,15 +14,13 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 const isDarkMode = true;
 
 const actions = [
-    {icon: <GitHubIcon/>, name: 'Github'},
-    {icon: <SchoolIcon/>, name: 'School'},
-    {icon: isDarkMode ? <Brightness7Icon/> : <Brightness4Icon/>, name: 'Dark Mode'},
-
-
+    {icon: <GitHubIcon/>, name: 'Github', link: 'https://github.com/Arash1381-y/fun-with-compiler'},
+    {icon: <SchoolIcon/>, name: 'Course Page', link: 'http://sharif.edu/~sani/courses/compiler/'},
 ];
 
 
 export default function Menu() {
+
     return (
         <Box sx={{transform: 'translateZ(0px)', flexGrow: 1}}>
             <SpeedDial
@@ -38,8 +35,13 @@ export default function Menu() {
                 {actions.map((action) => (
                     <SpeedDialAction
                         key={action.name}
-                        icon={action.icon}
                         tooltipTitle={action.name}
+                        icon={action.icon}
+                        onClick={() => {
+                            if (action.name === 'Github' || action.name === 'Course Page') {
+                                window.open(action.link, '_blank', 'noopener,noreferrer');
+                            }
+                        }}
                     />
                 ))}
             </SpeedDial>
