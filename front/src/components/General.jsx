@@ -28,6 +28,13 @@ const stackStyle ={
 }
 
 
+const imageContainerStyle = {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+}
+
+
 
 export const ProjectContainer = ({projectName, projectDescription, projectImage, projectTags, direction}) => {
     const theme = useTheme();
@@ -58,7 +65,7 @@ export const ProjectContainer = ({projectName, projectDescription, projectImage,
     )
 
     const projectImageSection = (
-        <Grid item xs={12} md={5}>
+        <Grid item xs={12} md={5} sx={imageContainerStyle}>
             <img src={projectImage} alt={projectName} width='500px' height='500px' style={{paddingRight: '1rem'}}/>
         </Grid>
     )
@@ -66,7 +73,7 @@ export const ProjectContainer = ({projectName, projectDescription, projectImage,
 
     return (
         <PContainer disableGutters maxWidth='100%'>
-            <Grid container spacing={5}>
+            <Grid container>
                 {
                     direction === 'left' ?
                         (
