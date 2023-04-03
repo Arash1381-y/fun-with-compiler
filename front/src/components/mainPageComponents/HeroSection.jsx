@@ -30,11 +30,11 @@ const HeroSection = () => {
             <HeroSectionContainer disableGutters maxWidth='100%'>
                 <Grid container spacing='2'>
                     <Grid item xs={12} md={7}>
-                        <HeroSectionTypography variant='h1' fontWeight='bold' component='h1' gutterBottom>
+                        <HeroSectionTypography color='white' variant='h1' fontWeight='bold' component='h1' gutterBottom>
                             WELCOME TO FUN WITH COMPILER
                         </HeroSectionTypography>
 
-                        <HeroSectionTypography variant='h6' sx={infoStyle} gutterBottom>
+                        <HeroSectionTypography color='white' variant='h6' component='p' sx={infoStyle} gutterBottom>
                             lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                             labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
                             laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
