@@ -2,7 +2,7 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import {createTheme, responsiveFontSizes, ThemeProvider} from "@mui/material";
+import {createTheme, responsiveFontSizes, ThemeProvider, useMediaQuery} from "@mui/material";
 import CssBaseline from '@mui/material/CssBaseline';
 
 import {
@@ -10,6 +10,7 @@ import {
     RouterProvider
 } from "react-router-dom";
 import MainPage from "./pages/MainPage";
+import {useMemo} from "react";
 
 const router = createBrowserRouter([
     {
@@ -18,14 +19,7 @@ const router = createBrowserRouter([
     }
 ]);
 
-// main color palette : #d10c71
-// secondary color palette : #5f71c7
-
-// text main color : #d1dcff
-// text secondary color : #97a5ff
-
-
-let theme = createTheme(
+let baseTheme = createTheme(
     {
         palette: {
             mode: 'dark',
@@ -47,9 +41,39 @@ let theme = createTheme(
     }
 )
 
-theme = responsiveFontSizes(theme);
+baseTheme = responsiveFontSizes(baseTheme);
 
 function App() {
+    const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+
+    const theme = useMemo(
+        () =>
+            createTheme(
+                {
+                    palette: {
+                        mode: prefersDarkMode ? 'dark' : 'light',
+                        primary: {
+                            main: '#d10c71',
+                            light: '#ff3f9f',
+                            dark: '#9c004d',
+                        },
+                        secondary: {
+                            main: '#5f71c7',
+                            light: '#8fa2ff',
+                            dark: '#2c3f94',
+                        },
+                        text: {
+                            primary: prefersDarkMode ? '#d1dcff' : '#28286c',
+                            secondary: '#97a5ff',
+
+
+                        }
+                    }
+                }
+            ),
+        [prefersDarkMode],
+    );
+
     return (
         <div className="App">
             <ThemeProvider theme={theme}>
