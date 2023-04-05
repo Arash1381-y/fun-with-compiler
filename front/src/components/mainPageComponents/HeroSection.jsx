@@ -1,4 +1,4 @@
-import {Container, Grid, SpeedDial, styled, Typography} from '@mui/material'
+import {Container, Grid, styled, Typography} from '@mui/material'
 import {images} from "../../constant";
 
 const HeroSectionContainer = styled(Container)(({theme}) => ({

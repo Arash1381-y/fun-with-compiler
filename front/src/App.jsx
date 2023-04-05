@@ -11,11 +11,16 @@ import {
 } from "react-router-dom";
 import MainPage from "./pages/MainPage";
 import {useMemo} from "react";
+import Magnip from "./pages/Magnip";
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <MainPage/>
+    },
+    {
+        path: '/magnip',
+        element: <Magnip/>
     }
 ]);
 
