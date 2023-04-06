@@ -8,6 +8,7 @@ const port = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(program);
+console.log("hi");
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
